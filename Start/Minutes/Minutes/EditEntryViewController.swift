@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
 
+import AppCenterCrashes
+
 class EditEntryViewController: UIViewController
 {
     @IBOutlet weak var titleTextField: UITextField!
@@ -29,6 +31,7 @@ class EditEntryViewController: UIViewController
         entry?.title = titleTextField.text!
         entry?.content = contentTextView.text!
         
+        MSCrashes.generateTestCrash()
         AppDelegate.entries.write(entry!)
                 
         navigationController?.popViewController(animated: true)
